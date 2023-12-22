@@ -8,7 +8,9 @@ function Book(name, author, pages, isRead) { // book constructor
     this.isRead = isRead;
 }
 
+Book.prototype.switchRead = function() {
 
+}
 function addBookToLibrary(e) { 
     e.preventDefault();//prevents the page from reseting after submiting form
     const title = document.getElementById('title').value; //gets all values from form
@@ -30,9 +32,7 @@ function displayLibrary(library) {
 function removeBook() {
 
 }
-function switchRead () {
-    
-}
+
 function createBook(book) {
     let bookCard = document.createElement('div'); 
     let btnContainer = document.createElement('div');
@@ -40,9 +40,22 @@ function createBook(book) {
     btnContainer.setAttribute('class', 'btnContainer');
     let read = document.createElement('button');
     read.setAttribute('class', 'readBtn');
+    // read.addEventListener('click', () => {
+    //     if(book.isRead === true) {
+    //         book.isRead === false;
+    //         read.classList.remove('read');
+    //         read.classList.add('notRead');
+    //         read.textContent = 'Not Read';
+    //     } else {
+    //         book.isRead === true;
+    //         read.classList.remove('notRead');
+    //         read.classList.add('read');
+    //         read.textContent = 'Read';
+    //     }
+    // });
     if(book.isRead === true) {
         read.classList.add('read');
-        read.textContent = 'Read'
+        read.textContent = 'Read';
     } else {
         read.classList.add('notRead')
         read.textContent = 'Not Read'
