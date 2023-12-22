@@ -1,5 +1,6 @@
 const myLibrary = [];
-
+const display = document.querySelector('.library');
+const bookform = document.querySelector('.book-form');
 function Book(name, author, pages, isReaded) {
     this.name = name;
     this.author = author;
@@ -7,28 +8,33 @@ function Book(name, author, pages, isReaded) {
     this.isReaded = isReaded;
 }
 
-function addBookToLibrary(Book) {
-    myLibrary.push(Book);
+function addBookToLibrary(e) {
+    e.preventDefault();
+    
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('Author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('isReaded').checked;
+    const book = new Book(title, author, pages, read);
+    myLibrary.push(book);
+    displayLibrary(myLibrary);
+    bookform.reset();
 }
 function displayLibrary(library) {
-    const display = document.querySelector('.library');
+    display.innerHTML = '';
     library.forEach(book => {
-       let item = document.createElement('div'); 
-       item.setAttribute('class', 'book');
-       item.innerHTML = book.name + " " + book.author;
-       display.appendChild(item);
+        createBook(book);
     });
-    
 }
-const book1 = new Book('hi', 'hello', 12, 'yes');
-const book2 = new Book('hey', 'your mama', 100, 'no');
-const book3 = new Book('hey', 'your mama', 100, 'no');
-const book4 = new Book('hey', 'your mama', 100, 'no');
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
-addBookToLibrary(book4);
+function createBook(book) {
+    let item = document.createElement('div'); 
+    item.setAttribute('class', 'book');
+    item.innerHTML = `<p>Title:${book.name}</p>
+                          <p>Author:${book.author}</p>
+                          <p>Pages:${book.pages}</p>`;
+    display.appendChild(item);
+}
+addEventListener('submit', addBookToLibrary);
 
 
-displayLibrary(myLibrary);

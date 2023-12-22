@@ -34,7 +34,7 @@ body {
     font-size: 30px;
     font-weight: bold;
 }
-.book-form {
+.book-form-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,6 +51,11 @@ form {
 .num-input {
     width: 80px;
 }
+input[type=checkbox] {
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+}
 .main {
    display: flex;
    justify-content: center;
@@ -62,6 +67,17 @@ form {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 .book {
+    font-size: 2rem;
+    padding: 10px;
+    font-weight: bold;
     height: 30vh;
     background-color: #818FB4;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    
+}
+.book > div {
+  
 }
