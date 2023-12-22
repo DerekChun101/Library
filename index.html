@@ -3,11 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="library"></div>
-    <script src="script.js"></script>
+   <div class="wrapper">
+       <div class="header">
+            <div>Library</div>
+            
+        </div>
+        <div class="book-form">
+            <form action="">
+                <label for="title">Book Title:</label>
+                <input type="text" id="title" name="title" class="book-input">
+                <label for="Author">Author:</label>
+                <input type="text" id="Author" name="Author" class="book-input">
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" class="book-input num-input" min="1" placeholder="1">
+                <div class="button">
+                    <button class="add-book">+ Add Book</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="main">
+            <div class="library"></div>
+            <script src="script.js"></script>
+        </div>
+   </div>
+  
 </body>
 </html>

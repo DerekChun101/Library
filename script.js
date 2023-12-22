@@ -14,6 +14,7 @@ function displayLibrary(library) {
     const display = document.querySelector('.library');
     library.forEach(book => {
        let item = document.createElement('div'); 
+       item.setAttribute('class', 'book');
        item.innerHTML = book.name + " " + book.author;
        display.appendChild(item);
     });
@@ -21,6 +22,13 @@ function displayLibrary(library) {
 }
 const book1 = new Book('hi', 'hello', 12, 'yes');
 const book2 = new Book('hey', 'your mama', 100, 'no');
+const book3 = new Book('hey', 'your mama', 100, 'no');
+const book4 = new Book('hey', 'your mama', 100, 'no');
+
 addBookToLibrary(book1);
 addBookToLibrary(book2);
+addBookToLibrary(book3);
+addBookToLibrary(book4);
+
+
 displayLibrary(myLibrary);

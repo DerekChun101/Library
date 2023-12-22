@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    background-color: #435585;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    background-color: #363062;
+    color:white;
+    font-size: 100px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+ 
+    margin-bottom: 3vh;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3vh;
+    margin-top: 1vh;
+}
+.add-book {
+    background-color: #435585;
+    color: white;
+    border: 0;
+    height: 4vh;
+    width: 10vw;
+    font-size: 30px;
+    font-weight: bold;
+}
+.book-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    color: white;
+    font-size: 30px;
+}
+.book-input {
+    height: 30px;
+    font-size: 25px;
+    border: 1px solid white;
+}
+.num-input {
+    width: 80px;
+}
+.main {
+   display: flex;
+   justify-content: center;
+}
+.library {
+    width: 60vw;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.book {
+    height: 30vh;
+    background-color: #818FB4;
+}
