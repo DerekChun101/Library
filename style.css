@@ -75,9 +75,29 @@ input[type=checkbox] {
     display: flex;
     flex-direction: column;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    word-wrap: break-word;
+    word-wrap: break-word; 
+    justify-content: space-between;
+}
+
+.read {
+    border: 1px solid green;
+    background-color: green;
+    text-align: center;
+}
+.notRead {
+    border: 1px solid red;
+    background-color: red;
+    text-align: center;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
     
 }
-.book > div {
-  
+.readBtn {
+    width: 50%;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
 }
