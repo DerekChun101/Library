@@ -25,13 +25,16 @@ function addBookToLibrary(e) {
     bookform.reset();//clears form after submit
 }
 function displayLibrary(library) {
+    let i = 0;
     display.innerHTML = '';//resets the display grid
     library.forEach(book => { //creates a new book display for each book
-        createBook(book);
+        createBook(book,i);
+        i++;
     });
+
 }
 
-function createBook(book) {
+function createBook(book, id) {
     let bookCard = document.createElement('div'); 
     let bookInfo = document.createElement('div');
     let removeBtnCtn = document.createElement('div');
@@ -60,13 +63,9 @@ function createBook(book) {
             read.textContent = 'Read';
         }
     });
-    remove.addEventListener('click',() => {
+    remove.addEventListener('click',() => { //Uses Id of book to delted the right object from array
         display.removeChild(bookCard);
-        for(i = 0; i <= myLibrary.length; i++) {
-            if(myLibrary[i].name === book.name) {
-                myLibrary.splice(i,1);
-            }
-        }
+        myLibrary.splice(id, 1);
     });
 
     if(book.isRead === true) { //Sets the intial read css
@@ -76,9 +75,11 @@ function createBook(book) {
         read.classList.add('notRead')
         read.textContent = 'Not Read'
     }
-    bookInfo.innerHTML = `<p>Title:${book.name}</p>
-                          <p>Author:${book.author}</p>
-                          <p>Pages:${book.pages}</p>`;
+
+
+    bookInfo.innerHTML = `<p>Title: ${book.name}</p>
+                          <p>Author: ${book.author}</p>
+                          <p>Pages: ${book.pages}</p>`;
     top.appendChild(removeBtnCtn);
     top.appendChild(bookInfo)
     bookCard.appendChild(top);
