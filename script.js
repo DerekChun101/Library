@@ -30,9 +30,6 @@ function displayLibrary(library) {
         createBook(book);
     });
 }
-function removeBook() {
-
-}
 
 function createBook(book) {
     let bookCard = document.createElement('div'); 
@@ -49,6 +46,7 @@ function createBook(book) {
     remove.textContent = 'X';
     let read = document.createElement('button');
     read.setAttribute('class', 'readBtn');
+
     read.addEventListener('click', () => { //Changes isRead status of book and sets the correct css while doing do.
         if(book.isRead === true) {
             book.isRead = false;
@@ -62,6 +60,15 @@ function createBook(book) {
             read.textContent = 'Read';
         }
     });
+    remove.addEventListener('click',() => {
+        display.removeChild(bookCard);
+        for(i = 0; i <= myLibrary.length; i++) {
+            if(myLibrary[i].name === book.name) {
+                myLibrary.splice(i,1);
+            }
+        }
+    });
+
     if(book.isRead === true) { //Sets the intial read css
         read.classList.add('read');
         read.textContent = 'Read';
@@ -79,6 +86,9 @@ function createBook(book) {
     removeBtnCtn.appendChild(remove);
     btnContainer.appendChild(read);
     display.appendChild(bookCard);
+
+    
+    
 }
 
 addEventListener('submit', addBookToLibrary);
