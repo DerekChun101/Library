@@ -90,11 +90,13 @@ input[type=checkbox] {
     text-align: center;
 }
 .removeBtnCtn {
-    
+    display: flex;
+    justify-content: flex-end;
 }
 .btnContainer {
     display: flex;
     justify-content: center;
+    /* margin-top: 60px; */
     
 }
 .readBtn {
@@ -102,4 +104,16 @@ input[type=checkbox] {
     font-size: 25px;
     color: white;
     font-weight: bold;
+}
+.rmBtn {
+    font-weight: bold;
+    font-size: 25px;
+}
+.book-info {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.book-info > p{
+    margin: 0;
 }

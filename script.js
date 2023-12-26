@@ -9,9 +9,9 @@ function Book(name, author, pages, isRead) { // book constructor
  
 }
 
-Book.prototype.switchRead = function() {
+// Book.prototype.switchRead = function() {
 
-}
+// }
 function addBookToLibrary(e) { 
     e.preventDefault();//prevents the page from reseting after submiting form
     const title = document.getElementById('title').value; //gets all values from form
@@ -39,11 +39,14 @@ function createBook(book) {
     let bookInfo = document.createElement('div');
     let removeBtnCtn = document.createElement('div');
     let btnContainer = document.createElement('div');
+    let top = document.createElement('div');
     bookCard.setAttribute('class', 'bookCard');
     bookInfo.setAttribute('class', 'book-info');
     btnContainer.setAttribute('class', 'btnContainer');
     removeBtnCtn.setAttribute('class', 'removeBtnCtn');
     let remove = document.createElement('button');
+    remove.setAttribute('class', 'rmBtn');
+    remove.textContent = 'X';
     let read = document.createElement('button');
     read.setAttribute('class', 'readBtn');
     read.addEventListener('click', () => { //Changes isRead status of book and sets the correct css while doing do.
@@ -69,10 +72,13 @@ function createBook(book) {
     bookInfo.innerHTML = `<p>Title:${book.name}</p>
                           <p>Author:${book.author}</p>
                           <p>Pages:${book.pages}</p>`;
-    bookCard.appendChild(removeBtnCtn);
-    bookCard.appendChild(bookInfo);
+    top.appendChild(removeBtnCtn);
+    top.appendChild(bookInfo)
+    bookCard.appendChild(top);
     bookCard.appendChild(btnContainer);
     removeBtnCtn.appendChild(remove);
     btnContainer.appendChild(read);
     display.appendChild(bookCard);
 }
+
+addEventListener('submit', addBookToLibrary);
