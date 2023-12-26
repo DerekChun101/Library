@@ -89,7 +89,9 @@ input[type=checkbox] {
     background-color: red;
     text-align: center;
 }
-
+.removeBtnCtn {
+    
+}
 .btnContainer {
     display: flex;
     justify-content: center;

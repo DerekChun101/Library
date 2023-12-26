@@ -6,6 +6,7 @@ function Book(name, author, pages, isRead) { // book constructor
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
+ 
 }
 
 Book.prototype.switchRead = function() {
@@ -35,40 +36,43 @@ function removeBook() {
 
 function createBook(book) {
     let bookCard = document.createElement('div'); 
+    let bookInfo = document.createElement('div');
+    let removeBtnCtn = document.createElement('div');
     let btnContainer = document.createElement('div');
     bookCard.setAttribute('class', 'bookCard');
+    bookInfo.setAttribute('class', 'book-info');
     btnContainer.setAttribute('class', 'btnContainer');
+    removeBtnCtn.setAttribute('class', 'removeBtnCtn');
+    let remove = document.createElement('button');
     let read = document.createElement('button');
     read.setAttribute('class', 'readBtn');
-    // read.addEventListener('click', () => {
-    //     if(book.isRead === true) {
-    //         book.isRead === false;
-    //         read.classList.remove('read');
-    //         read.classList.add('notRead');
-    //         read.textContent = 'Not Read';
-    //     } else {
-    //         book.isRead === true;
-    //         read.classList.remove('notRead');
-    //         read.classList.add('read');
-    //         read.textContent = 'Read';
-    //     }
-    // });
-    if(book.isRead === true) {
+    read.addEventListener('click', () => { //Changes isRead status of book and sets the correct css while doing do.
+        if(book.isRead === true) {
+            book.isRead = false;
+            read.classList.remove('read');
+            read.classList.add('notRead');
+            read.textContent = 'Not Read';
+        } else {
+            book.isRead = true;
+            read.classList.remove('notRead');
+            read.classList.add('read');
+            read.textContent = 'Read';
+        }
+    });
+    if(book.isRead === true) { //Sets the intial read css
         read.classList.add('read');
         read.textContent = 'Read';
     } else {
         read.classList.add('notRead')
         read.textContent = 'Not Read'
     }
-    bookCard.innerHTML = `<div class = 'book-info'>
-                         <p>Title:${book.name}</p>
+    bookInfo.innerHTML = `<p>Title:${book.name}</p>
                           <p>Author:${book.author}</p>
-                          <p>Pages:${book.pages}</p></div>`;
+                          <p>Pages:${book.pages}</p>`;
+    bookCard.appendChild(removeBtnCtn);
+    bookCard.appendChild(bookInfo);
     bookCard.appendChild(btnContainer);
+    removeBtnCtn.appendChild(remove);
     btnContainer.appendChild(read);
     display.appendChild(bookCard);
 }
-
-addEventListener('submit', addBookToLibrary);
-
-
